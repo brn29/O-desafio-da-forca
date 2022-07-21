@@ -12,8 +12,9 @@ class Forca {
     
   chutar(letra) {
     if (this.start != 'aguardando chute') return;
-    if (letra.length > 1) return;
+    if (letra.length != 1) return;
     if (this.letraChutadas.includes(letra)) return;
+    if (letra.match(/[^A-Za-z]/)) return; // Adicionei essa linha para impedir que o jogador chute caracteres que não são letras
     this.letraChutadas = this.letraChutadas.concat(letra);
     if (this.resposta.includes(letra)) {
       for (var indice = 0; indice < this.resposta.length; indice ++) {
